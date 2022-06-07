@@ -6,6 +6,8 @@ class WelcomePage2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenHeight=MediaQuery.of(context).size.height;
+    final double screenWidth=MediaQuery.of(context).size.width;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
@@ -39,32 +41,33 @@ class WelcomePage2 extends StatelessWidget {
               Container(
                 alignment: Alignment.center,
                 padding: EdgeInsets.only(top: 90),
-                child: Image.asset("assets/symbol 2.png", width: 50,),
+                child: Image.asset("assets/symbol 2.png", width: screenWidth/8,),
               ),
               const Text("Selamat Datang", style: 
               TextStyle(
-                fontSize: 28, 
+                fontSize: 30, 
                 fontWeight: FontWeight.bold,
                 letterSpacing: 2.3
                 ),
               ),
-              const Text("DeKurir", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 255, 182, 29)),
+              const Text("DeKurir", style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 255, 182, 29)),
               ),
               Container(
                 alignment: Alignment.center,
                 padding: EdgeInsets.only(top: 25),
-                child: Text("DeKurir hadir dengan berbagai fitur",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
+                child: Text("DeKurir hadir dengan berbagai fitur",style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),)
               ),
-              const Text("untuk memudahkan", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Color.fromARGB(255, 252, 172, 0))),
-              const Text("Pengiriman Paket Anda", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              const Text("untuk memudahkan", style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold,color: Color.fromARGB(255, 252, 172, 0))),
+              const Text("Pengiriman Paket Anda", style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold)),
               Container(
                 padding: EdgeInsets.only(top: 30, bottom: 20),
-                child: Image.asset("assets/3.png", width: 270,),
+                child: Image.asset("assets/3.png", width: screenWidth*0.72,),
               ),
               Container(
                 alignment: Alignment.bottomCenter,
                 color: Color.fromARGB(255, 136, 204, 241),
-                padding: EdgeInsets.only(top: 30, bottom: 35),
+                margin: EdgeInsets.only(top: screenHeight/20),
+                padding: EdgeInsets.symmetric(horizontal: screenWidth*0.175, vertical: screenHeight*0.06),
                 child: ElevatedButton.icon(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context){return SignIn();},),);}, icon: Icon(Icons.keyboard_arrow_right), label: Text("Tekan Tombol untuk pindah slide")),
               ),
             ],

@@ -1,3 +1,11 @@
+import 'package:first_project/BiayaKirim.dart';
+import 'package:first_project/KirimPaket.dart';
+import 'package:first_project/Resi.dart';
+import 'package:first_project/Riwayat_Pengiriman.dart';
+import 'package:first_project/camera.dart';
+import 'package:first_project/e_wallet.dart';
+import 'package:first_project/maps.dart';
+import 'package:first_project/profile.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,13 +21,15 @@ class HomePage extends StatelessWidget {
         items: [
           BottomNavigationBarItem(
             label: "Home",
-            icon: Icon(Icons.home_filled)),
+            icon: IconButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context){return HomePage();},),);
+            }, icon: Icon(Icons.home))),
           BottomNavigationBarItem(
             label: "Navigate",
-            icon: Icon(Icons.location_on)),
+            icon: IconButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context){return MapSample();},),);}, icon: Icon(Icons.location_on))),
           BottomNavigationBarItem(
             label: "Profile",
-            icon: Icon(Icons.person))
+            icon: IconButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context){return profile();},),);}, icon: Icon(Icons.person)))
         ]),
       body: 
       SingleChildScrollView(
@@ -40,8 +50,8 @@ class HomePage extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(left: 75, top: screenHeight/11),
                     child: Text("""
-Heloo... 
-Employee""",
+Helloo... 
+Alexa""",
 style: TextStyle(
   fontFamily: "Arial Black",
   fontSize: screenWidth*0.04,
@@ -55,7 +65,6 @@ style: TextStyle(
                     Card(
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                       color: Color.fromARGB(255, 124, 171, 215),
-                      child: InkWell(
                         child: Column(
                           children: [
                             Container(
@@ -94,11 +103,14 @@ style: TextStyle(
                                       ),
                                       child: TextField(
                                       decoration: InputDecoration(
+                                        suffixIcon: IconButton(onPressed: (){
+                                          Navigator.push(context, MaterialPageRoute(builder: (context){return Resi();},),);
+                                        }, icon: Icon(Icons.search)),
                                         hintStyle: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold
                                         ),
-                                        contentPadding: EdgeInsets.only(left: 4, bottom: 3),
+                                        contentPadding: EdgeInsets.only(left: 10, top: 5),
                                         hintText: "Cek Nomor Resi",
                                         border: InputBorder.none,
                                       ),
@@ -110,7 +122,6 @@ style: TextStyle(
                             ),                         
                           ],
                         ),
-                      ),
                     ),
                     Row(
                       children: [
@@ -118,6 +129,9 @@ style: TextStyle(
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                           color: Color.fromARGB(255, 124, 171, 215),
                           child: InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context){return KirimPaket();},),);
+                            },
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -147,6 +161,10 @@ style: TextStyle(
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                           color: Color.fromARGB(255, 124, 171, 215),
                           child: InkWell(
+                            onTap: () {
+                             Navigator.push(context,
+  MaterialPageRoute(builder:(context){return E_Wallet();},),); 
+                            },
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -178,6 +196,9 @@ style: TextStyle(
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                           color: Color.fromARGB(255, 124, 171, 215),
                           child: InkWell(
+                            onTap: () {  
+                            Navigator.push(context, MaterialPageRoute(builder: (context){return Riwayat_Pengiriman();},),);
+                            },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
@@ -196,6 +217,9 @@ style: TextStyle(
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                           color: Color.fromARGB(255, 124, 171, 215),
                           child: InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context){return BiayaKirim();},),);
+                            },
                             child: Row(
                               children: [
                                 // Text("data"),

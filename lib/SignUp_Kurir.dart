@@ -1,19 +1,20 @@
 import 'package:first_project/HomePage.dart';
 import 'package:first_project/SignIn.dart';
 import 'package:first_project/SignIn_Kurir.dart';
+import 'package:first_project/homepagekurir.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'user.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({ Key? key }) : super(key: key);
+class SignUpKurir extends StatefulWidget {
+  const SignUpKurir({ Key? key }) : super(key: key);
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignUpKurir> createState() => _SignUpKurirState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpKurirState extends State<SignUpKurir> {
     final formKey = GlobalKey<FormState>();
     final controlFullname = TextEditingController();
     final controlPhoneNumber = TextEditingController();
@@ -176,7 +177,7 @@ class _SignUpState extends State<SignUp> {
                   children: <Widget>[
                     Text("Already Have an Account ?", style: TextStyle(fontSize: 13),),
                     GestureDetector(
-                      onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context){return SignIn();},),);},
+                      onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context){return SignIn_Kurir();},),);},
                       child: Text("Login", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),),
                     )
         
@@ -186,10 +187,10 @@ class _SignUpState extends State<SignUp> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     GestureDetector(
-                      onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context){return SignIn_Kurir();},),);},
+                      onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context){return SignIn();},),);},
                       child: Text("Sign In", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),),
                     ),
-                    Text("Kurir", style: TextStyle(fontSize: 13),),
+                    Text("User", style: TextStyle(fontSize: 13),),
                   ],
                 ),
                 Container(
@@ -214,7 +215,7 @@ class _SignUpState extends State<SignUp> {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(email: controlEmail.text.trim(), password: controlPassword.text.trim())
         .then((uid) => {
           Navigator.push(context,
-  MaterialPageRoute(builder:(context){return HomePage();},),),
+  MaterialPageRoute(builder:(context){return homepagekurir();},),),
         });
       }on FirebaseAuthException catch(e) {
         print(e);
@@ -224,9 +225,8 @@ class _SignUpState extends State<SignUp> {
         PhoneNumber: int.parse(controlPhoneNumber.text), 
         Email: controlEmail.text);
         createData(data);
-    }
   }
-
+}
 
 
 
@@ -255,7 +255,7 @@ class TextFieldContainer extends StatelessWidget {
 }
 
 Future createData (Data data) async {
-  final docData = FirebaseFirestore.instance.collection("User").doc();
+  final docData = FirebaseFirestore.instance.collection("Driver").doc();
   data.ID = docData.id;
   final json = data.toJson();
   docData.set(json);}

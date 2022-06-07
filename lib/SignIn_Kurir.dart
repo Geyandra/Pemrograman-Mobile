@@ -1,16 +1,18 @@
 import 'package:first_project/HomePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:first_project/SignUp_Kurir.dart';
+import 'package:first_project/homepagekurir.dart';
 import 'SignUp.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({ Key? key }) : super(key: key);
+class SignIn_Kurir extends StatefulWidget {
+  const SignIn_Kurir({ Key? key }) : super(key: key);
 
   @override
-  State<SignIn> createState() => _SignInState();
+  State<SignIn_Kurir> createState() => _SignIn_KurirState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignIn_KurirState extends State<SignIn_Kurir> {
   final formKey = GlobalKey<FormState>();
   final controlEmail = TextEditingController();
   final controlPassword = TextEditingController();
@@ -54,7 +56,7 @@ class _SignInState extends State<SignIn> {
                   margin: EdgeInsets.only(top: 40),
                   child: Image.asset("assets/4.png"),
                 ),
-                Text("Sign In",
+                Text("Sign In Kurir",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 50,
@@ -135,7 +137,7 @@ class _SignInState extends State<SignIn> {
         await FirebaseAuth.instance.signInWithEmailAndPassword(email: controlEmail.text, password: controlPassword.text)
         .then((uid) => {
           Navigator.push(context,
-  MaterialPageRoute(builder:(context){return HomePage();},),),
+  MaterialPageRoute(builder:(context){return homepagekurir();},),),
         });
       } on FirebaseAuthException catch(e){
         print(e);
@@ -156,7 +158,7 @@ class HaveAccount extends StatelessWidget {
       children: <Widget>[
         Text("Don't Have an Account ?", style: TextStyle(fontSize: 13),),
         GestureDetector(
-          onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context){return SignUp();},),);},
+          onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context){return SignUpKurir();},),);},
           child: Text(" Sign Up", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),),
         )
         
