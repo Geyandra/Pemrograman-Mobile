@@ -1,6 +1,9 @@
 import 'package:first_project/Body.dart';
+import 'package:first_project/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+import 'homepage(recover).dart';
 
 
 Future main() async{
@@ -17,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
       ),
-      home: Body(),
+      home: Homepage_recover(),
       // home: MyHomePage(title: 'Flutter project'),
     );
   }

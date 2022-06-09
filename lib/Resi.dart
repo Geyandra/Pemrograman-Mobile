@@ -59,7 +59,9 @@ class Resi extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(top: screenHeight*0.4),
                   child: ElevatedButton(
-                    onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context){return HomePage();},),);}, 
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context){return HomePage();},),);
+                      }, 
                     child: Text("DONE"),
                     style: ElevatedButton.styleFrom(
                       primary: Color.fromARGB(255, 8, 117, 146),

@@ -8,10 +8,10 @@ import 'package:first_project/maps.dart';
 import 'package:first_project/profile.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class Homepage_recover extends StatelessWidget {
+  const Homepage_recover({Key? key}) : super(key: key);
 
- @override
+  @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
