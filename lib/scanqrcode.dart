@@ -18,18 +18,21 @@ class _qrscannerState extends State<qrscanner> {
   String qrCode = '';
   String _scanBarcode = 'Unknown';
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          Center(child: ElevatedButton(onPressed: () => scanQR(), child: Text("Scan QR"))),
+          Center(
+              child: ElevatedButton(
+                  onPressed: () => scanQR(), child: Text("Scan QR"))),
         ],
       ),
     );
   }
+
   Future<void> scanQR() async {
     String barcodeScanRes;
     try {
@@ -39,7 +42,7 @@ class _qrscannerState extends State<qrscanner> {
     } on PlatformException {
       barcodeScanRes = 'Failed to get platform version.';
     }
-//barcode scanner flutter ant 
+//barcode scanner flutter ant
     setState(() {
       _scanBarcode = barcodeScanRes;
     });

@@ -16,26 +16,46 @@ class Homepage_recover extends StatelessWidget {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Color.fromARGB(255 ,193, 223, 240),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
+      backgroundColor: Color.fromARGB(255, 193, 223, 240),
+      bottomNavigationBar: BottomNavigationBar(items: [
+        BottomNavigationBarItem(
             label: "Home",
-            icon: IconButton(onPressed: (){
-            }, icon: Icon(Icons.home))),
-          BottomNavigationBarItem(
+            icon: IconButton(onPressed: () {}, icon: Icon(Icons.home))),
+        BottomNavigationBarItem(
             label: "Navigate",
-            icon: IconButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context){return MapSample();},),);}, icon: Icon(Icons.location_on))),
-          BottomNavigationBarItem(
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return MapSample();
+                      },
+                    ),
+                  );
+                },
+                icon: Icon(Icons.location_on))),
+        BottomNavigationBarItem(
             label: "Profile",
-            icon: IconButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context){return profile();},),);}, icon: Icon(Icons.person)))
-        ]),
-        body: SingleChildScrollView(
-          child: Stack(
-            children: <Widget>[
-              Container(
-                alignment: Alignment.topRight,
-                padding: EdgeInsets.only(top: 15, right: 50),
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return profile();
+                      },
+                    ),
+                  );
+                },
+                icon: Icon(Icons.person)))
+      ]),
+      body: SingleChildScrollView(
+        child: Stack(
+          children: <Widget>[
+            Container(
+              alignment: Alignment.topRight,
+              padding: EdgeInsets.only(top: 15, right: 50),
               child: Image.asset(
                 "assets/Group 1.png",
                 width: 40,
@@ -52,40 +72,43 @@ class Homepage_recover extends StatelessWidget {
             Column(
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: 75, top: screenHeight/11),
-                    child: Text("""
+                  margin: EdgeInsets.only(left: 75, top: screenHeight / 11),
+                  child: Text(
+                    """
 Helloo... 
 Alexa""",
-style: TextStyle(
-  fontFamily: "Arial Black",
-  fontSize: screenWidth*0.04,
-),),
-                    width: screenWidth,
-                    height: screenHeight/10,
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255 ,193, 223, 240)
-                      ),
+                    style: TextStyle(
+                      fontFamily: "Arial Black",
+                      fontSize: screenWidth * 0.04,
+                    ),
+                  ),
+                  width: screenWidth,
+                  height: screenHeight / 10,
+                  decoration:
+                      BoxDecoration(color: Color.fromARGB(255, 193, 223, 240)),
                 ),
                 Card(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
                   color: Color.fromARGB(255, 124, 171, 215),
                   child: Column(
                     children: [
                       Container(
                         padding: EdgeInsets.fromLTRB(2, 5, 2, 5),
-                        margin: EdgeInsets.only(top: 5, left: screenWidth*0.6),
+                        margin:
+                            EdgeInsets.only(top: 5, left: screenWidth * 0.6),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           color: Colors.orange,
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Text("Cek Pengiriman",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold
-                        ),),
-                        
+                        child: Text(
+                          "Cek Pengiriman",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                       Row(
                         children: [
@@ -93,32 +116,39 @@ style: TextStyle(
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Cek Kirimanmu di sini",
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold
-                              ),),
+                              Text(
+                                "Cek Kirimanmu di sini",
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.bold),
+                              ),
                               Container(
                                 alignment: Alignment.center,
-                                height: screenHeight*0.05,
-                                width: screenWidth*0.6,
+                                height: screenHeight * 0.05,
+                                width: screenWidth * 0.6,
                                 decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20)
-                                ),
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20)),
                                 child: TextField(
                                   decoration: InputDecoration(
                                     suffixIcon: IconButton(
-                                      onPressed: (){
-                                          Navigator.push(context, MaterialPageRoute(builder: (context){return Resi();},),);}, 
-                                      icon: Icon(Icons.search)),
-                                      hintStyle: TextStyle(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) {
+                                                return Resi();
+                                              },
+                                            ),
+                                          );
+                                        },
+                                        icon: Icon(Icons.search)),
+                                    hintStyle: TextStyle(
                                         fontSize: 18,
-                                        fontWeight: FontWeight.bold
-                                      ),
-                                      contentPadding: EdgeInsets.only(left: 10, top: 5),
-                                      hintText: "Cek Nomor Resi",
-                                      border: InputBorder.none,
+                                        fontWeight: FontWeight.bold),
+                                    contentPadding:
+                                        EdgeInsets.only(left: 10, top: 5),
+                                    hintText: "Cek Nomor Resi",
+                                    border: InputBorder.none,
                                   ),
                                 ),
                               ),
@@ -130,53 +160,67 @@ style: TextStyle(
                   ),
                 ),
                 Row(
-                        children: [
-                          Card(
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                          color: Color.fromARGB(255, 124, 171, 215),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context){return KirimPaket();},),);
-                            },
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                              alignment: Alignment.center,
-                              margin: EdgeInsets.only(
-                                  top: 5, left: screenWidth * 0.22),
-                              width: screenWidth / 4,
-                              height: screenHeight / 30,
-                              decoration: BoxDecoration(
-                                  color: Colors.orange,
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Text(
-                                "Kirim Paket",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold),
+                  children: [
+                    Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      color: Color.fromARGB(255, 124, 171, 215),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return KirimPaket();
+                              },
+                            ),
+                          );
+                        },
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                alignment: Alignment.center,
+                                margin: EdgeInsets.only(
+                                    top: 5, left: screenWidth * 0.22),
+                                width: screenWidth / 4,
+                                height: screenHeight / 30,
+                                decoration: BoxDecoration(
+                                    color: Colors.orange,
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: Text(
+                                  "Kirim Paket",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
+                              Container(
+                                child: Image.asset("assets/13.png"),
+                              ),
+                            ]),
+                      ),
+                    ),
+                    Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      color: Color.fromARGB(255, 124, 171, 215),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return E_Wallet();
+                              },
                             ),
+                          );
+                        },
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
                             Container(
-                              child: Image.asset("assets/13.png"),
-                            ),
-                              ]
-                          ),
-                          ),
-                          ),
-                          Card(
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                          color: Color.fromARGB(255, 124, 171, 215),
-                          child: InkWell(
-                            onTap: () {
-                             Navigator.push(context,
-                            MaterialPageRoute(builder:(context){return E_Wallet();},),); 
-                            },
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
                               alignment: Alignment.center,
                               margin: EdgeInsets.only(
                                   top: 5, left: screenWidth * 0.211),
@@ -196,19 +240,26 @@ style: TextStyle(
                             Container(
                               child: Image.asset("assets/14.png"),
                             ),
-                              ],
-                            ),
-                          ),
-                          )
-                        ],
+                          ],
+                        ),
                       ),
-                      Card(
+                    )
+                  ],
+                ),
+                Card(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                     color: Color.fromARGB(255, 124, 171, 215),
                     child: InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context){return Riwayat_Pengiriman();},),);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return Riwayat_Pengiriman();
+                            },
+                          ),
+                        );
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -230,7 +281,14 @@ style: TextStyle(
                   color: Color.fromARGB(255, 124, 171, 215),
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context){return BiayaKirim();},),);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return BiayaKirim();
+                          },
+                        ),
+                      );
                     },
                     child: Row(
                       children: [
@@ -261,9 +319,9 @@ style: TextStyle(
                         image: AssetImage("assets/2.jpg"), fit: BoxFit.cover)),
               ),
             ),
-            ],
-          ),
+          ],
         ),
+      ),
     );
   }
 }
