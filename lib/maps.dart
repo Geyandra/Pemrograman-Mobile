@@ -9,6 +9,13 @@ class MapSample extends StatefulWidget {
 
 class MapSampleState extends State<MapSample> {
   Completer<GoogleMapController> _controller = Completer();
+  final _searchCOntroller = TextEditingController();
+
+  Set<Marker> _markers = Set<Marker>();
+  Set<Polygon> _polygons = Set<Polygon>();
+  List<LatLng> polygonLatLngs = <LatLng>[];
+
+  int _polygonIdCounter = 1;
 
   static final CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
@@ -55,23 +62,39 @@ class MapSampleState extends State<MapSample> {
   );
 
   @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      body: GoogleMap(
-        mapType: MapType.normal,
-        markers: {_kGooglePlexMarker, _kLakeMarker},
-        polylines: {_kPolyline},
-        polygons: {_kPolygon},
-        initialCameraPosition: _kGooglePlex,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
-      ),
-    );
+  void iniState() {
+    super.initState();
+
+    _setMarker(LatLng(37.42796133580664, -122.085749655962));
   }
 
-  Future<void> _goToTheLake() async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+  void _setMarker(LatLng point) {
+    setState(() {
+      _markers.add(Marker(markerId: MarkerId('marker'), position: point));
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        title: Text("Maps"),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: GoogleMap(
+              mapType: MapType.normal,
+              markers: _markers,
+              polygons: _polygons,
+              initialCameraPosition: _kGooglePlex,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -146,6 +146,7 @@ max (45 x 40 x 35 cm)
                                           Berat: controlBerat.text,
                                           NamaBarang: controlNamaBarang.text,
                                           Ukuran: 'M');
+                                      createData(data);
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(

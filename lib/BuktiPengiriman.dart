@@ -1,4 +1,5 @@
 import 'package:first_project/KirimPaket2.dart';
+import 'package:first_project/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -74,9 +75,21 @@ class BuktiPengiriman extends StatelessWidget {
                                       fontSize: 19),
                                 ),
                               ),
-                              Container(
-                                child:
-                                    Image.asset("assets/pict.png", width: 100),
+                              InkWell(
+                                onTap: (){
+                                  Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) {
+                                            return camera();
+                                          },
+                                        ),
+                                      );
+                                },
+                                child: Container(
+                                  child:
+                                      Image.asset("assets/pict.png", width: 100),
+                                ),
                               ),
                               Container(
                                   margin: EdgeInsets.only(top: 30),

@@ -1,9 +1,6 @@
 import 'package:first_project/Body.dart';
-import 'package:first_project/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-import 'homepage(recover).dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,8 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(),
-      home: Homepage_recover(),
-      // home: MyHomePage(title: 'Flutter project'),
+      home: Body(),
     );
   }
 }

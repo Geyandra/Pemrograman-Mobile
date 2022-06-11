@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:first_project/dataPaket.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class Riwayat_Pengiriman extends StatefulWidget {
@@ -47,7 +48,7 @@ Widget buildData(Data data) => Stack(
         Column(
           children: [
             Card(
-              margin: EdgeInsets.only(top: 60),
+              margin: EdgeInsets.only(top: 10),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
               color: Color.fromARGB(255, 255, 255, 255),
@@ -55,19 +56,25 @@ Widget buildData(Data data) => Stack(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(left: 0.87),
-                    child: Text("Selesai"),
+                    margin: EdgeInsets.only(left: 340, top: 10),
+                    child: Text(
+                      "Selesai",
+                      style: GoogleFonts.dosis(
+                          textStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 240, 179, 2))),
+                    ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 20, bottom: 90),
+                    margin: EdgeInsets.only(left: 20, bottom: 20),
                     child: Text(
-                      "Pengiriman" + data.NamaPengirim,
+                      "Pengiriman",
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 70),
+                    margin: EdgeInsets.only(left: 20),
                     child: Text(
                       "Jenis Barang : " + data.JenisBarang,
                       style:
@@ -75,7 +82,7 @@ Widget buildData(Data data) => Stack(
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 70),
+                    margin: EdgeInsets.only(left: 20),
                     child: Text(
                       "Penerima        : " + data.NamaPenerima,
                       style:
@@ -83,7 +90,7 @@ Widget buildData(Data data) => Stack(
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 70),
+                    margin: EdgeInsets.only(left: 20),
                     child: Text(
                       "Waktu              : " +
                           DateFormat('dd-MM-yyyy').format(DateTime.now()),
@@ -94,11 +101,11 @@ Widget buildData(Data data) => Stack(
                   Row(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 80, left: 20),
+                        margin: EdgeInsets.only(top: 10, left: 20),
                         child: Image.asset("assets/Driver.png"),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 80, left: 10),
+                        margin: EdgeInsets.only(top: 10, left: 10),
                         child: Text(
                           "Paket telah diterima",
                           style: TextStyle(
@@ -112,8 +119,7 @@ Widget buildData(Data data) => Stack(
                   Row(
                     children: [
                       Container(
-                        margin:
-                            EdgeInsets.only(top: 80, left: 40, bottom: 0.01),
+                        margin: EdgeInsets.only(top: 20, left: 40, bottom: 4),
                         child: Text(
                           "1 barang",
                           style: TextStyle(
@@ -121,8 +127,7 @@ Widget buildData(Data data) => Stack(
                         ),
                       ),
                       Container(
-                        margin:
-                            EdgeInsets.only(top: 80, left: 20, bottom: 0.01),
+                        margin: EdgeInsets.only(top: 20, left: 20, bottom: 4),
                         child: Text(
                           "Total Harga: Rp17.000",
                           style: TextStyle(
